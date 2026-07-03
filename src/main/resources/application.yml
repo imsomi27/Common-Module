@@ -1,0 +1,40 @@
+project:
+  name: module
+
+server:
+  port: 8087
+
+spring:
+  profiles:
+    active: dev
+  jpa:
+    open-in-view: false
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  jackson:
+    mapper:
+      accept-case-insensitive-properties: true
+    deserialization:
+      fail-on-unknown-properties: false
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true
+
+springdoc:
+  use-fqn: true
+  api-docs:
+    path: /api/v3/api-docs
+  swagger-ui:
+    tags-sorter: alpha
+    operations-sorter: alpha
+    path: /api/swagger-ui.html
